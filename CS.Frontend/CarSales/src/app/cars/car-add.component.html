@@ -1,0 +1,57 @@
+<div class="card">
+    <div class="card-header">
+        {{pageTitle}}
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="container">
+              <div *ngIf="errorMessage" class="alert alert-warning">{{ errorMessage }}</div>
+              <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <div class="form-group" >
+                    <label for="vehicleType">Vehicle Type:</label>
+                    <select class="form-control" formControlName="vehicleType">
+                        <option [value]="vtype.id" *ngFor="let vtype of vehicleTypes">{{vtype.text}}</option>
+                    </select>
+                    <div class="text-danger" *ngIf="f.vehicleType.touched && f.vehicleType.invalid && f.vehicleType.errors.required" >Vehicle Type required!</div>
+                </div>
+                <div class="form-group">
+                    <label for="make">Make</label>
+                    <input type="text" class="form-control" formControlName="make" />
+                    <div class="text-danger" *ngIf="f.make.touched && f.make.invalid && f.make.errors.required" >Make required!</div>
+                </div>
+                 <div class="form-group">
+                    <label for="model">Model</label>
+                    <input type="text" class="form-control" formControlName="model" />
+                    <div class="text-danger" *ngIf="f.model.touched && f.model.invalid && f.model.errors.required" >Model required!</div>
+                </div>
+                <div class="form-group">
+                    <label for="engine">Engine</label>
+                    <input type="text" class="form-control" formControlName="engine" />
+                    <div class="text-danger" *ngIf="f.engine.touched && f.engine.invalid && f.engine.errors.required" >Engine required!</div>
+                </div>
+                <div class="form-group">
+                    <label for="doors">Doors</label>
+                    <input type="text" class="form-control" formControlName="doors" value="2" />
+                    <div class="text-danger" *ngIf="f.doors.touched && f.doors.invalid && f.doors.errors.required" >Doors required!</div>
+                </div>
+                <div class="form-group">
+                    <label for="wheels">Wheels</label>
+                    <input type="text" class="form-control" formControlName="wheels" value="2" />
+                    <div class="text-danger" *ngIf="f.wheels.touched && f.wheels.invalid && f.wheels.errors.required" >Wheels required!</div>
+                </div>
+                <div class="form-group">
+                    <label for="bodyType">Body Type:</label>
+                    <select class="form-control" formControlName="bodyType">
+                        <option [value]="btype.id" *ngFor="let btype of bodyTypes">{{btype.text}}</option>
+                    </select>
+                    <div class="text-danger" *ngIf="f.bodyType.touched && f.bodyType.invalid && f.bodyType.errors.required" >Body Type required!</div>
+                </div>
+                <div class="form-group">
+                  <input type="submit" class="btn btn-success" value="Create" [disabled] ="form.invalid" />
+                  <a routerLink="/" class="btn btn-default">Cancel</a>
+                </div>
+              </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,37 @@
+<div class="card">
+    <div class="card-header">
+        {{pageTitle}}
+    </div>
+    <div class="card-body">
+        <div *ngIf="errorMessage" class="alert alert-warning">{{ errorMessage }}</div>
+        <div class="table-responsive">
+            <table class="table"
+                    *ngIf='cars && cars.length'>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Vehicle Type</th>
+                        <th>Make</th>
+                        <th>Model</th>
+                        <th>Engine</th>
+                        <th>Doors</th>
+                        <th>Wheels</th>
+                        <th>Body Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let car of cars'>
+                        <td>{{car.id}}</td>                           
+                        <td>{{car.vehicleType}}</td>
+                        <td>{{car.make}}</td>
+                        <td>{{car.model}}</td>
+                        <td>{{car.engine}}</td>
+                        <td>{{car.doors}}</td>
+                        <td>{{car.wheels}}</td>
+                        <td>{{car.bodyType}}</td>               
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

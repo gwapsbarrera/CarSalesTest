@@ -1,0 +1,25 @@
+<div class="card">
+    <div class="card-header">
+      {{pageTitle}}
+    </div>
+    <div class="card-body">
+      <div class="container-fluid">
+        <div class="text-center">
+          <img src="./assets/images/logo.png"
+               class="img-responsive center-block"
+               style="max-height:300px;padding-bottom:50px" />
+        </div>
+        <div class="container">
+          <select class="form-control" (change)="onChangeOperation($event)">
+            <option>Select Vehicle to Create</option>
+            <option *ngFor="let operation of operations">{{operation}}</option>
+        </select>
+      </div>
+  
+        <div class="text-center">Developed by:</div>
+        <div class="text-center">
+          <h3>Romel Barrera</h3>
+        </div>
+      </div>
+    </div>
+  </div>
